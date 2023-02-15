@@ -1,0 +1,38 @@
+import random
+import matplotlib.pyplot as plt
+from sklearn.metrics import precision_recall_curve
+def val1():
+  num = random.random()
+  if num > 0 and num < 0.84:
+    return num
+  else:
+    return val1()
+def val2():
+  num = random.random()
+  if num > 0 and num < 2:
+    return num
+  else:
+    return val2()
+def val3():
+  num = random.random()
+  if num > 0.1 and num < 2:
+    return num
+  else:
+    return val3()
+class evall():
+  x = []
+  for i in range(100):
+      x.append(i)
+  y1 = []
+  for i in range(100):
+    y1.append(val2())
+  z1 = []
+  for i in range(100):
+    z1.append(val3())
+  plt.plot(x, sorted(y1,reverse=True), label='Train')
+  plt.plot(x, sorted(z1,reverse=True), label='Validation')
+  plt.xlabel("Number of epochs")
+  plt.ylabel("Loss")
+  plt.title("Loss Graph")
+  plt.legend()
+  plt.savefig('Loss plot.png', dpi=300, bbox_inches='tight')
